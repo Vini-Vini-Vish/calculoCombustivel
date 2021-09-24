@@ -1,12 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import Valores from './src';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={{fontWeight: "bold" }} >APP para calcular o consumo de combustivel pelo valor.</Text>
+      <Text/>
+      <Valores/>  
+      
     </View>
   );
 }
@@ -14,7 +16,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2ECCFA',
     alignItems: 'center',
     justifyContent: 'center',
   },
