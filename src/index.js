@@ -11,8 +11,10 @@ export default function Valores() {
     const [consG, setconsG] = useState(null)    //valor da consumo gasolina
 
     //variaveis para armazenar o calculo primairo consumo/valor combustivel
-    const [valorA, setvalorA] = useState(null)
-    const [valorG, setValorB] = useState(null)
+    // const [valorA, setvalorA] = useState(null)
+    // const [valorG, setValorB] = useState(null)
+    var valorA;
+    var valorG;
 
     //função para calcular os gasolina 
     function calcula(){
@@ -22,17 +24,21 @@ export default function Valores() {
         
         if(valorA > valorG){
             <Text>Coloque Álcool</Text>
+            setMelhor("Coloque Álcool")
         }
         else{
             if(valorA < valorG){
                 <Text>Coloque Gasolina</Text>
+                setMelhor("Coloque Gasolina")
             }
             else{
                 if(valorA == valorG){
                     <Text>Coloque qualquer um</Text>
+                    setMelhor("Coloque qualquer um")            
                 }
                 else{
                     <Text>ERRO no calculo</Text>
+                    setMelhor("ERRO no calculo")
                 }                
             }
         }
@@ -40,51 +46,55 @@ export default function Valores() {
         setconsG(null);
         setalc(null);
         setgas(null);
-        setvalorA(null);
-        setValorB(null);
+        valorA = null;
+        valorG = null;
     }
 
   return (
     <View>
-      <Text>Entrada de valores</Text>
+      <View>
+        <Text>Entrada de valores</Text>
 
-      <Text>Digite o valor da Gasolina:</Text>
-      <TextInput
-        onChangeText = {setgas}
-        value = {gas}
-        placeholder = "Ex: 7.50" 
-        keyboardType = "numeric"
-      />
+        <Text>Digite o valor da Gasolina:</Text>
 
-      <Text>Digite o valor do Álcool:</Text>
-      <TextInput
-         onChangeText = {setalc}
-         value = {alc}
-         placeholder = "Ex: 5.50" 
-         keyboardType = "numeric"
-      />
-
-      <Text>Digite o consumo do carro usando Gasolina:</Text>
-      <TextInput
-         onChangeText = {setconsA}
-         value = {consA}
-         placeholder = "Ex: 10" 
-         keyboardType = "numeric"
-      />
-
-      <Text>Digite o consumo carro usando Álcool:</Text>
-      <TextInput
-          onChangeText = {setconsG}
-          value = {consG}
-          placeholder = "Ex: 7" 
+        <TextInput
+          onChangeText = {setgas}
+          value = {gas}
+          placeholder = "Ex: 7.50" 
           keyboardType = "numeric"
-      />
+        />
 
-      <Button
-        onPress = {calcula}
-        title = "Realizar Calculo"    
-      ></Button>
+        <Text>Digite o valor do Álcool:</Text>
+        <TextInput
+          onChangeText = {setalc}
+          value = {alc}
+          placeholder = "Ex: 5.50" 
+          keyboardType = "numeric"
+        />
 
+        <Text>Digite o consumo do carro usando Gasolina:</Text>
+        <TextInput
+          onChangeText = {setconsA}
+          value = {consA}
+          placeholder = "Ex: 10" 
+          keyboardType = "numeric"
+        />
+
+        <Text>Digite o consumo carro usando Álcool:</Text>
+        <TextInput
+            onChangeText = {setconsG}
+            value = {consG}
+            placeholder = "Ex: 7" 
+            keyboardType = "numeric"
+        />
+
+        <Button
+          onPress = {calcula}
+          title = "Realizar Calculo"    
+        ></Button>
+      </View>
+
+      <Resultado mostrar={melhor} />  
     </View>
   );
 }
