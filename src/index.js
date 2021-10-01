@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, StyleSheet, Button } from 'react-native';
 
+export default function ResultadoCalculo(props){
+  return(
+      <View>
+          <Text>{props.melhor}</Text>        
+      </View>
+  );
+}
+
 export default function Valores() {
-
-
+  
     //variaveis que recebem os dados informados 
     const [alc, setalc] = useState(null)        //valor do alcool
     const [gas, setgas] = useState(null)        //valor da gasolina
@@ -94,7 +101,7 @@ export default function Valores() {
         ></Button>
       </View>
 
-      <Resultado mostrar={melhor} />  
+      <Resultado mostrar = {melhor} />  
     </View>
   );
 }
