@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, StyleSheet, Button } from 'react-native';
+import styles from './style';
 
 export default function ResultadoCalculo(props){
   return(
@@ -58,37 +59,42 @@ export default function Valores() {
     }
 
   return (
-    <View>
-      <View>
-        <Text>Entrada de valores</Text>
+	<View style={styles.formContext}>
+	  <View style={styles.form}>
+	  
+        <Text  style={styles.formLabel}>Entrada de valores</Text>
 
-        <Text>Digite o valor da Gasolina:</Text>
+        <Text style={styles.formLabel}>Digite o valor da Gasolina:</Text>
 
         <TextInput
+		  style={styles.input}
           onChangeText = {setgas}
           value = {gas}
           placeholder = "Ex: 7.50" 
           keyboardType = "numeric"
         />
 
-        <Text>Digite o valor do Álcool:</Text>
+        <Text style={styles.formLabel}>Digite o valor do Álcool:</Text>
         <TextInput
-          onChangeText = {setalc}
+          style={styles.input}
+		  onChangeText = {setalc}
           value = {alc}
           placeholder = "Ex: 5.50" 
           keyboardType = "numeric"
         />
 
-        <Text>Digite o consumo do carro usando Gasolina:</Text>
+        <Text style={styles.formLabel}>Digite o consumo do carro usando Gasolina:</Text>
         <TextInput
+		  style={styles.input}
           onChangeText = {setconsA}
           value = {consA}
           placeholder = "Ex: 10" 
           keyboardType = "numeric"
         />
 
-        <Text>Digite o consumo carro usando Álcool:</Text>
+        <Text style={styles.formLabel}>Digite o consumo carro usando Álcool:</Text>
         <TextInput
+			style={styles.input}
             onChangeText = {setconsG}
             value = {consG}
             placeholder = "Ex: 7" 
